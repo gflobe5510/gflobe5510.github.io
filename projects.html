@@ -4,45 +4,39 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects · Garth Lo Bello</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Fonts: Plus Jakarta Sans (headings) + Source Sans 3 (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #001233;   /* dark blue background */
-      --panel: #0a1a3d;
-      --text: #e6edf3;
-      --muted: #9aa4b2;
-      --accent: #58a6ff;
-      --border: #2b3a65;
-      --radius: 12px;
-      --shadow: 0 4px 16px rgba(0,0,0,.4);
-      --maxw: 1100px;
+    :root{
+      --bg:#001233; --panel:#0a1a3d; --text:#e6edf3; --muted:#9aa4b2; --accent:#2f81f7; --accent-2:#8dbbff; --border:#2b3a65; --radius:12px; --shadow:0 2px 10px rgba(0,0,0,.28); --maxw:980px;
     }
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: var(--text); background: var(--bg); }
-    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 48px 20px 64px; }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:"Source Sans 3", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color:var(--text); background:var(--bg)}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:72px 20px 64px}
 
     /* Header */
-    h1 { font-size: clamp(32px, 5vw, 56px); margin: 0 0 8px; font-weight: 800; text-align:center }
-    .sub { text-align:center; color: var(--muted); margin: 0 0 28px; font-size: 18px }
+    h1{font-family:"Plus Jakarta Sans", "Source Sans 3", sans-serif; font-size:clamp(32px,5vw,48px); font-weight:700; line-height:1.15; margin:0 0 6px; text-align:center}
+    .sub{font-size:18px; color:var(--muted); text-align:center; margin:0 0 24px}
 
-    /* Pills nav */
-    .pills { display:flex; justify-content:center; gap: 16px; flex-wrap: wrap; margin-bottom: 36px }
-    .pill { display:inline-block; padding: 14px 20px; border-radius: 999px; background: var(--panel); border:1px solid var(--border); color: var(--text); text-decoration:none; font-weight:600; box-shadow: var(--shadow) }
-    .pill:hover { background: var(--accent); color: #000 }
+    /* Pills nav (match home) */
+    .pills{display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-bottom:36px}
+    .pill{display:inline-flex; align-items:center; justify-content:center; padding:14px 22px; border-radius:999px; background:var(--panel); border:1px solid var(--border); color:var(--text); text-decoration:none; font-weight:700; font-size:16px; box-shadow:var(--shadow); transition:background .18s ease, border-color .18s ease, transform .18s ease}
+    .pill:hover{background:var(--accent); border-color:var(--accent); color:#fff; transform:translateY(-1px)}
 
-    /* Grid */
-    .grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px }
-    @media (max-width: 820px){ .grid{ grid-template-columns: 1fr } }
+    /* Grid & Cards */
+    .grid{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:18px}
+    @media (max-width:860px){ .grid{grid-template-columns:1fr} }
 
-    .card { background: var(--panel); border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px; display:flex; flex-direction:column; gap: 10px }
-    .card h3 { margin: 0; font-size: 20px }
-    .card p { margin: 0; color: var(--muted) }
-    .tags { display:flex; flex-wrap:wrap; gap:8px; margin-top: 6px }
-    .tag { font-size: 12px; border:1px solid var(--border); border-radius:999px; padding:4px 8px; color: var(--muted) }
-    .links { margin-top:auto; display:flex; gap:12px }
-    .links a { color: var(--accent); text-decoration:none; font-weight:600 }
+    .card{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; display:flex; flex-direction:column; gap:10px}
+    .card h3{font-family:"Plus Jakarta Sans", "Source Sans 3", sans-serif; margin:0; font-weight:700; font-size:20px}
+    .kicker{margin:0; color:var(--text)}
+    .bullets{margin:6px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:6px}
+    .bullets .label{display:inline-block; min-width:140px; font-weight:700; color:var(--text)}
+    .bullets li{color:var(--muted)}
+    .links{margin-top:auto; display:flex; gap:12px}
+    .links a{color:var(--accent); font-weight:700; text-decoration:none}
 
-    footer { color: var(--muted); font-size: 14px; padding: 20px 0; border-top: 1px solid var(--border); margin-top: 40px; text-align:center }
+    footer{color:var(--muted); font-size:14px; padding:18px 0; border-top:1px solid var(--border); margin-top:28px; text-align:center}
   </style>
 </head>
 <body>
@@ -53,59 +47,65 @@
       <nav class="pills">
         <a class="pill" href="index.html">Home</a>
         <a class="pill" href="https://drive.google.com/file/d/115EHtOKLiA-2smJm9yiweS01hvlUtHEE/view?usp=drive_link" target="_blank" rel="noopener">Resume</a>
-        <a class="pill" href="https://www.linkedin.com/in/garthlobello/ target="_blank" rel="noopener">LinkedIn</a>
+        <a class="pill" href="https://www.linkedin.com/in/garthlobello/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="pill" href="blog/index.html">Blog</a>
       </nav>
     </header>
 
     <section class="grid">
-      <!-- 1. London Housing Data Wrangling Mini Project -->
+      <!-- 1) London Housing — Data Wrangling (Mini Project) -->
       <article class="card">
         <h3>London Housing — Data Wrangling (Mini Project)</h3>
-        <p>Hands‑on cleaning and reshaping of a public housing dataset, showcasing practical data‑wrangling patterns (reshape, merge, impute, and validate) to prepare reliable inputs for analysis.</p>
-        <div class="tags">
-          <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Jupyter</span><span class="tag">EDA</span>
-        </div>
+        <p class="kicker">From messy CSVs to analysis‑ready tables with verified joins and types.</p>
+        <ul class="bullets">
+          <li><span class="label">Data &amp; Methods:</span> cleaned nulls/outliers, normalized date &amp; price fields, merged sources; data tests guard against schema drift.</li>
+          <li><span class="label">Modeling/Tools:</span> Python · Pandas · Jupyter; tidy transforms with clear function boundaries.</li>
+          <li><span class="label">Outcome:</span> repeatable wrangling pipeline + EDA notebook that surfaces neighborhoods and trend shifts.</li>
+        </ul>
         <div class="links">
           <a href="https://github.com/gflobe5510/London-Housing-Data-Wrangling-Mini-Project" target="_blank" rel="noopener">GitHub Repo →</a>
         </div>
       </article>
 
-      <!-- 2. Luxury Housing Price Trends & Market Insights -->
+      <!-- 2) Luxury Housing — Price Trends & Market Insights -->
       <article class="card">
-        <h3>Luxury Housing — Price Trends & Market Insights</h3>
-        <p>Explores market dynamics with price‑banding, bed/bath heatmaps, and year‑built trends to surface actionable patterns for pricing and segmentation decisions.</p>
-        <div class="tags">
-          <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">EDA</span>
-        </div>
+        <h3>Luxury Housing — Price Trends &amp; Market Insights</h3>
+        <p class="kicker">Turns raw listings into pricing signals and segment insights for decision‑making.</p>
+        <ul class="bullets">
+          <li><span class="label">Data &amp; Methods:</span> price‑banding, bed/bath heatmaps, year‑built trend splits; outlier handling.</li>
+          <li><span class="label">Modeling/Tools:</span> Power BI · DAX measures (median price, MoM/YoY deltas).</li>
+          <li><span class="label">Outcome:</span> interactive report to compare submarkets and support pricing strategy.</li>
+        </ul>
         <div class="links">
           <a href="https://github.com/gflobe5510/Luxury-Housing-Price-Trends-Market-Insights" target="_blank" rel="noopener">GitHub Repo →</a>
-          <!-- <a href="#" target="_blank" rel="noopener">Live Report →</a> -->
         </div>
       </article>
 
-      <!-- 3. Financial Risk Analysis (Capstone I) -->
+      <!-- 3) Financial Risk Analysis — Capstone I -->
       <article class="card">
         <h3>Financial Risk Analysis — Capstone I</h3>
-        <p>End‑to‑end analysis of risk and return across assets, combining factor research, volatility/Sharpe metrics, and forecasting to inform portfolio‑level decisions.</p>
-        <div class="tags">
-          <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Forecasting</span><span class="tag">Finance</span>
-        </div>
+        <p class="kicker">Quantifies risk/return to inform portfolio allocation and scenario planning.</p>
+        <ul class="bullets">
+          <li><span class="label">Data &amp; Methods:</span> factor/benchmark setup, rolling vol/Sharpe, drawdown analysis, basic forecasting.</li>
+          <li><span class="label">Modeling/Tools:</span> Python · Pandas · Statsmodels; tidy backtest scaffolding.</li>
+          <li><span class="label">Outcome:</span> reproducible notebook + report translating metrics into allocation implications.</li>
+        </ul>
         <div class="links">
           <a href="https://github.com/gflobe5510/Financial-Risk-Analysis" target="_blank" rel="noopener">GitHub Repo →</a>
         </div>
       </article>
 
-      <!-- 4. Utility Sector Performance Optimization (Capstone II) -->
+      <!-- 4) Utility Sector Performance Optimization — Capstone II -->
       <article class="card">
         <h3>Utility Sector Performance Optimization — Capstone II</h3>
-        <p>Diagnostics across U.S. states, outlier labeling, price‑sensitivity, and 10% revenue‑lift simulations; integrates Python analysis with interactive dashboards.</p>
-        <div class="tags">
-          <span class="tag">Python</span><span class="tag">Tableau</span><span class="tag">Forecasting</span><span class="tag">Revenue Simulation</span>
-        </div>
+        <p class="kicker">Diagnoses underperformance and simulates revenue lift with actionable levers.</p>
+        <ul class="bullets">
+          <li><span class="label">Data &amp; Methods:</span> outlier labeling, price‑sensitivity by state/sector, cohort comparisons.</li>
+          <li><span class="label">Modeling/Tools:</span> Python · Tableau; forecasting + scenario simulation.</li>
+          <li><span class="label">Outcome:</span> dashboard + playbook summarizing levers, trade‑offs, and expected impact.</li>
+        </ul>
         <div class="links">
           <a href="https://github.com/gflobe5510/Utility_Sector_Performance_Optimization" target="_blank" rel="noopener">GitHub Repo →</a>
-          <!-- <a href="#" target="_blank" rel="noopener">Live Dashboard →</a> -->
         </div>
       </article>
     </section>
