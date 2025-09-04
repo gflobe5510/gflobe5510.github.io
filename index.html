@@ -31,10 +31,47 @@
     .subheader{font-family:"Plus Jakarta Sans","Source Sans 3",sans-serif; font-size:clamp(20px,2.6vw,28px); font-weight:700; color:var(--accent-2); margin:0 0 20px}
     .tagline{font-size:18px; color:var(--muted); margin:0 0 28px}
 
-    /* Pills */
-    .pills{display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-bottom:40px}
-    .pill{display:inline-flex; align-items:center; justify-content:center; padding:14px 22px; border-radius:999px; background:var(--panel); border:1px solid var(--border); color:var(--text); text-decoration:none; font-weight:700; font-size:16px; box-shadow:var(--shadow); transition:background .18s, border-color .18s, transform .18s}
+    /* Pills — 2×4 grid, ~50% larger */
+    .pills{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap:24px;
+      margin-bottom:48px;
+      justify-items:stretch;
+      align-items:stretch;
+    }
+    .pill{
+      display:inline-flex;
+      width:100%;
+      justify-content:center;
+      align-items:center;
+      min-height:78px;        /* larger */
+      padding:0 27px;         /* larger */
+      border-radius:999px;
+      background:var(--panel);
+      border:1px solid var(--border);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:700;
+      font-size:24px;         /* larger */
+      box-shadow:var(--shadow);
+      transition:background .18s, border-color .18s, transform .18s;
+    }
     .pill:hover{background:var(--accent); border-color:var(--accent); color:#fff; transform:translateY(-1px)}
+
+    /* Responsive steps */
+    @media (max-width: 980px){
+      .pills{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .pill{ min-height:68px; font-size:20px; padding:0 22px; }
+    }
+    @media (max-width: 720px){
+      .pills{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .pill{ min-height:58px; font-size:18px; padding:0 18px; }
+    }
+    @media (max-width: 420px){
+      .pills{ grid-template-columns: 1fr; }
+      .pill{ min-height:52px; font-size:16px; padding:0 16px; }
+    }
 
     /* Bio panel — larger, bolder, centered */
     .panel{
