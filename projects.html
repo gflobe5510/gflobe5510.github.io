@@ -4,124 +4,125 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects · Garth Lo Bello</title>
-  
   <style>
-    :root{
-      --bg:#0b0f14; --card:#121821; --text:#eaf2ff; --muted:#9bb0c9; --accent:#5ea1ff;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
-    header{background:#121821;padding:1rem 2rem;text-align:center;border-bottom:1px solid rgba(255,255,255,.1);position:sticky;top:0;z-index:5}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;margin:0;background:#0b0f14;color:#eaf2ff;line-height:1.6}
+    header{background:#121821;padding:1rem 2rem;text-align:center;border-bottom:1px solid rgba(255,255,255,.1)}
     header h1{margin:0;font-size:1.8rem}
-    nav a{margin:0 .75rem;color:var(--accent);text-decoration:none}
+    nav a{margin:0 .75rem;color:#5ea1ff;text-decoration:none}
     nav a:hover{text-decoration:underline}
     main{max-width:1000px;margin:2rem auto;padding:0 1rem}
-    section{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1.5rem;margin-bottom:2rem;box-shadow:0 6px 18px rgba(0,0,0,.3)}
-    h2{margin-top:0;color:var(--accent)}
+    section{background:#121821;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1.5rem;margin-bottom:2rem;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+    h2{margin-top:0;color:#5ea1ff}
     .grid{display:grid;gap:1rem;grid-template-columns:repeat(3,1fr)}
     @media (max-width: 960px){.grid{grid-template-columns:repeat(2,1fr)}}
     @media (max-width: 640px){.grid{grid-template-columns:1fr}}
-    .card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1rem}
-    .badge{display:inline-block;font-size:.75rem;background:rgba(94,161,255,.12);border:1px solid rgba(94,161,255,.35);color:var(--text);padding:.15rem .5rem;border-radius:999px;margin-right:.25rem}
-    .btn{display:inline-block;padding:.5rem .875rem;border-radius:10px;border:1px solid rgba(255,255,255,.2);text-decoration:none;color:var(--text)}
+    .card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1rem;display:flex;flex-direction:column}
+    .badge{display:inline-block;font-size:.75rem;background:rgba(94,161,255,.12);border:1px solid rgba(94,161,255,.35);color:#eaf2ff;padding:.15rem .5rem;border-radius:999px;margin-right:.25rem}
+    .btn{display:inline-block;padding:.5rem .875rem;border-radius:10px;border:1px solid rgba(255,255,255,.2);text-decoration:none;color:#eaf2ff}
     .btn + .btn{margin-left:.5rem}
-    footer{text-align:center;padding:2rem;font-size:.9rem;color:var(--muted);border-top:1px solid rgba(255,255,255,.1)}
-    .muted{color:var(--muted)}
-    ul{margin-top:.5rem}
-    .stack{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
-    .stack .badge{margin:0}
-    .row{display:flex;gap:1rem;flex-wrap:wrap}
-    .row > div{flex:1 1 300px}
-    .avatar{width:120px;height:120px;border-radius:999px;border:2px solid rgba(255,255,255,.15);object-fit:cover}
-    .kv{display:grid;grid-template-columns:140px 1fr;gap:.5rem .75rem}
-    .kv div{padding:.25rem 0}
+    .muted{color:#9bb0c9}
+    .row{margin-top:auto}
   </style>
-
 </head>
 <body>
-  
   <header>
     <h1>Garth Lo Bello · Data Analytics</h1>
     <nav>
-      <a href="/">Home</a>
-      <a href="/projects.html">Projects</a>
-      <a href="/about.html">About</a>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
       <a href="mailto:garthlobello@gmail.com">Contact</a>
     </nav>
   </header>
 
   <main>
     <section>
-      <h2>Projects</h2>
-      <p class="muted">A curated selection of analysis, dashboards, and tools. Each project includes code links and, when available, a live demo.</p>
-      <div class="grid">
-        <div class="card">
-          <h3>Portfolio Tracker Pro</h3>
-          <p>Interactive portfolio app analyzing 500+ tickers with performance metrics, risk, and rebalancing views.</p>
-          <div class="stack">
-            <span class="badge">Python</span><span class="badge">Pandas</span><span class="badge">Streamlit</span>
-          </div>
-          <p>
-            <a class="btn" href="https://github.com/gflobe5510/portfolio-tracker-pro" target="_blank">GitHub</a>
-            <a class="btn" href="#" target="_blank">Live Demo</a>
-          </p>
-        </div>
-        <div class="card">
-          <h3>Utility Sector Revenue Optimization</h3>
-          <p>Identifies underperforming U.S. utility sectors by state, with outlier flags, price sensitivity, and revenue simulations.</p>
-          <div class="stack">
-            <span class="badge">Python</span><span class="badge">SQL</span><span class="badge">Tableau</span>
-          </div>
-          <p>
-            <a class="btn" href="https://github.com/gflobe5510" target="_blank">Code</a>
-            <a class="btn" href="#" target="_blank">Tableau</a>
-          </p>
-        </div>
-        <div class="card">
-          <h3>Luxury Housing Insights</h3>
-          <p>Market analysis and pricing trends with Power BI and Tableau; includes heatmaps, segmentation, and time trends.</p>
-          <div class="stack">
-            <span class="badge">Power BI</span><span class="badge">Tableau</span><span class="badge">EDA</span>
-          </div>
-          <p>
-            <a class="btn" href="https://github.com/gflobe5510" target="_blank">Code</a>
-            <a class="btn" href="#" target="_blank">Dashboard</a>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>More Work</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Financial Literacy Content</h3>
-          <p>Curriculum-aligned lessons, calculators, and demos for core finance topics (budgeting, credit, investing).</p>
-          <div class="stack">
-            <span class="badge">Content</span><span class="badge">Education</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Revenue Forecasting Experiments</h3>
-          <p>Benchmarks ARIMA/ETS/Prophet for sector-level revenue-per-customer monthly series.</p>
-          <div class="stack">
-            <span class="badge">Time Series</span><span class="badge">Forecasting</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>SQL Reporting Samples</h3>
-          <p>Window functions, KPI views, and customer success reporting patterns.</p>
-          <div class="stack">
-            <span class="badge">SQL</span><span class="badge">Analytics</span>
-          </div>
-        </div>
-      </div>
+      <h2>Featured & Recent Projects</h2>
+      <p class="muted">This list auto-updates from my GitHub. Featured projects appear first, then the most recently updated public repos.</p>
+      <div id="projects" class="grid" role="list"></div>
+      <p class="muted">Tip: add a project website in the repo’s <code>Settings → Pages</code> or set the repo’s <code>Website</code> field; it will show up as “Live Demo”.</p>
     </section>
   </main>
-  
-  <footer>
-    © 2025 Garth Lo Bello · Built with GitHub Pages
-  </footer>
 
+  <script>
+    // ---------- CONFIGURE THIS ----------
+    const GITHUB_USER = "gflobe5510";
+
+    // Put repo names here (exactly) to pin them at the top in this order.
+    // Edit to your real repo names:
+    const FEATURED_REPOS = [
+      "portfolio-tracker-pro",
+      "utility-sector-revenue-optimization",
+      "luxury-housing-insights"
+    ];
+    // ---------- END CONFIG ----------
+
+    const container = document.getElementById("projects");
+
+    // Utility: format dates nicely
+    const fmtDate = (iso) => new Date(iso).toLocaleDateString(undefined, {year:"numeric", month:"short", day:"numeric"});
+
+    // Render one project card
+    function renderCard(repo) {
+      const lang = repo.language ? `<span class="badge">${repo.language}</span>` : "";
+      const topics = (repo.topics || []).slice(0,4).map(t => `<span class="badge">${t}</span>`).join(" ");
+      const desc = repo.description ? repo.description : "No description provided yet.";
+      const demo = repo.homepage ? `<a class="btn" href="${repo.homepage}" target="_blank" rel="noopener">Live Demo</a>` : "";
+      const updated = fmtDate(repo.pushed_at);
+
+      const div = document.createElement("div");
+      div.className = "card";
+      div.setAttribute("role", "listitem");
+      div.innerHTML = `
+        <h3>${repo.name.replace(/-/g," ")}</h3>
+        <p>${desc}</p>
+        <p>${lang} ${topics}</p>
+        <div class="row">
+          <a class="btn" href="${repo.html_url}" target="_blank" rel="noopener">GitHub</a>
+          ${demo}
+          <span class="muted" style="margin-left:.75rem">Updated ${updated}</span>
+        </div>
+      `;
+      return div;
+    }
+
+    async function loadProjects() {
+      // Get up to 100 public repos, already sorted by updated desc
+      const resp = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`);
+      if (!resp.ok) {
+        container.innerHTML = `<p class="muted">Could not load repositories (${resp.status}).</p>`;
+        return;
+      }
+      const all = await resp.json();
+
+      // Attach topics for richer badges (optional, best-effort)
+      // GitHub REST v3 can return topics if we request a special Accept header; not available here via fetch in all cases, so we'll skip extra call.
+
+      // Make a map for quick lookup
+      const byName = Object.fromEntries(all.map(r => [r.name.toLowerCase(), r]));
+
+      // Build featured list in the order specified, only if present
+      const featured = FEATURED_REPOS
+        .map(n => byName[n.toLowerCase()])
+        .filter(Boolean);
+
+      // Everything else, excluding featured, already sorted by updated time
+      const rest = all.filter(r => !FEATURED_REPOS.map(x => x.toLowerCase()).includes(r.name.toLowerCase()));
+
+      // Final list = featured first, then the next most recent (limit for brevity)
+      const finalList = [...featured, ...rest].slice(0, 12);
+
+      if (finalList.length === 0) {
+        container.innerHTML = `<p class="muted">No public repositories found. Once you push projects to GitHub, they’ll appear here automatically.</p>`;
+        return;
+      }
+
+      finalList.forEach(repo => container.appendChild(renderCard(repo)));
+    }
+
+    loadProjects().catch(() => {
+      container.innerHTML = `<p class="muted">Something went wrong loading projects.</p>`;
+    });
+  </script>
 </body>
 </html>
