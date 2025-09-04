@@ -7,27 +7,68 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0d1117; --panel: #161b22; --text: #e6edf3; --muted: #8b949e;
-      --accent: #58a6ff; --border: #30363d; --radius: 12px; --shadow: 0 4px 16px rgba(0,0,0,.4);
-      --maxw: 900px;
+      --bg: #001233;   /* dark blue background */
+      --panel: #0a1a3d;
+      --text: #e6edf3;
+      --muted: #9aa4b2;
+      --accent: #58a6ff;
+      --border: #2b3a65;
+      --radius: 12px;
+      --shadow: 0 4px 16px rgba(0,0,0,.4);
+      --maxw: 1100px;
     }
     * { box-sizing: border-box; }
-    body { margin: 0; font-family: Inter, sans-serif; color: var(--text); background: var(--bg); }
-    .container { max-width: var(--maxw); margin: 0 auto; padding: 40px 20px; text-align: center; }
-    h1 { font-size: clamp(28px, 4vw, 44px); font-weight: 800; margin-bottom: 12px; }
-    .tagline { font-size: 18px; color: var(--muted); margin-bottom: 28px; }
-    .pills { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
-    .pill { display: inline-block; padding: 10px 18px; border-radius: 999px; background: var(--panel); border: 1px solid var(--border);
-            color: var(--text); text-decoration: none; font-weight: 600; box-shadow: var(--shadow); transition: background .2s, transform .2s; }
-    .pill:hover { background: var(--accent); color: #000; transform: translateY(-2px); }
-    .panel { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); margin-bottom: 40px; }
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 60px 20px; text-align: center; }
+
+    h1 {
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 800;
+      margin-bottom: 16px;
+      white-space: nowrap; /* keep on one line */
+    }
+    .tagline { font-size: 22px; color: var(--muted); margin-bottom: 36px; }
+
+    .pills { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 56px; }
+    .pill {
+      display: inline-block;
+      padding: 36px 54px;  /* ~300% bigger */
+      border-radius: 999px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 20px;
+      box-shadow: var(--shadow);
+      transition: background .2s, transform .2s;
+    }
+    .pill:hover { background: var(--accent); color: #000; transform: translateY(-3px); }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+      margin-bottom: 56px;
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
     footer { color: var(--muted); font-size: 14px; padding: 20px 0; border-top: 1px solid var(--border); margin-top: 40px; }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Turning Data into Decisions · Portfolio of Garth Lo Bello</h1>
-    <p class="tagline">Financial & Utility-Sector Analytics | Python · SQL · Tableau · Power BI</p>
+    <p class="tagline">Financial & Utility‑Sector Analytics · Python · SQL · Tableau · Power BI</p>
 
     <nav class="pills">
       <a class="pill" href="https://drive.google.com/file/d/115EHtOKLiA-2smJm9yiweS01hvlUtHEE/view?usp=drive_link" target="_blank" rel="noopener">Resume</a>
@@ -37,10 +78,12 @@
     </nav>
 
     <div class="panel">
-      <p>Welcome to my professional portfolio. Here I showcase projects in financial data analytics, utility-sector performance, and data storytelling. Explore my resume, connect with me on LinkedIn, read my blog posts, or dive into my project work.</p>
+      Welcome! This is my professional portfolio, highlighting projects in financial data analytics, utility‑sector performance, and data storytelling. Use the links above to explore my resume, connect on LinkedIn, read blog posts, or dive into project work.
     </div>
 
-    <footer>© <span id="y"></span> Garth Lo Bello</footer>
+    <footer>
+      © <span id="y"></span> Garth Lo Bello
+    </footer>
   </div>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
