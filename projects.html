@@ -34,17 +34,20 @@
     .grid{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:18px}
     @media (max-width:860px){ .grid{grid-template-columns:1fr} }
 
-    .card{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; display:flex; flex-direction:column; gap:10px}
-    .card h3{font-family:"Plus Jakarta Sans", "Source Sans 3", sans-serif; margin:0; font-weight:700; font-size:20px}
-    .kicker{margin:0; color:var(--text)}
-    .bullets{margin:6px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:6px}
-    .bullets .label{display:inline-block; min-width:140px; font-weight:700; color:var(--text)}
-    .bullets li{color:var(--muted)}
-    .links{margin-top:auto; display:flex; gap:12px}
+    .card{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px; display:flex; flex-direction:column; gap:12px}
+    .card h3{font-family:"Plus Jakarta Sans", "Source Sans 3", sans-serif; margin:0; font-weight:700; font-size:22px; letter-spacing:.2px}
+    .kicker{margin:0; color:var(--muted); line-height:1.5}
+    .bullets{margin:10px 0 0; padding:0; list-style:none; display:block}
+    .bullets .label{font-weight:700; color:var(--text)}
+    .bullets li{color:var(--muted); margin:8px 0; display:grid; grid-template-columns:160px 1fr; column-gap:16px; align-items:start}
+    .links{margin-top:12px; display:flex; gap:12px}
     .links a{color:var(--accent); font-weight:700; text-decoration:none}
 
     footer{color:var(--muted); font-size:14px; padding:18px 0; border-top:1px solid var(--border); margin-top:28px; text-align:center}
-  </style>
+    @media (max-width: 640px){
+    .bullets li{grid-template-columns:1fr;}
+  }
+</style>
 </head>
 <body>
   <main class="wrap">
