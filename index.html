@@ -3,117 +3,124 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Turning Data into Decisions · Portfolio of Garth Lo Bello</title>
-
+  <title>Projects · Garth Lo Bello</title>
   <!-- Fonts: Plus Jakarta Sans (headings) + Source Sans 3 (body) -->
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-
   <style>
-    :root {
-      --bg: #001233;        /* corporate navy */
-      --panel: #0a1a3d;     /* card/nav background */
-      --text: #e6edf3;      /* main text */
-      --muted: #9aa4b2;     /* secondary text */
-      --accent: #2f81f7;    /* refined blue accent */
-      --accent-2: #8dbbff;  /* light accent for subheader */
-      --border: #2b3a65;    /* borders */
-      --radius: 12px;
-      --shadow: 0 2px 10px rgba(0,0,0,.28);
-      --maxw: 980px;        /* slightly narrower for polish */
+    :root{
+      --bg:#001233; --panel:#0a1a3d; --text:#e6edf3; --muted:#9aa4b2; --accent:#2f81f7; --accent-2:#8dbbff; --border:#2b3a65; --radius:12px; --shadow:0 2px 10px rgba(0,0,0,.28); --maxw:980px;
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Source Sans 3", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      color: var(--text);
-      /* OPTION D: subtle dot grid overlay + gradient */
-      background:
-        radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px) 0 0 / 24px 24px,
-        linear-gradient(180deg, #0c1224 0%, #0a1a3d 55%, #0d1836 100%);
-    }
-    .container { max-width: var(--maxw); margin: 0 auto; padding: 72px 20px 64px; text-align: center; }
+    *{box-sizing:border-box}
+    body{
+  margin:0;
+  font-family:"Source Sans 3", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(180deg, #0c1224 0%, #0a1a3d 55%, #0d1836 100%);
+}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:72px 20px 64px}
 
-    /* Headings */
-    h1 {
-      font-family: "Plus Jakarta Sans", "Source Sans 3", sans-serif;
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: .2px;
-      margin: 0 0 8px;
-    }
-    h2.subheader {
-      font-family: "Plus Jakarta Sans", "Source Sans 3", sans-serif;
-      font-size: clamp(20px, 2.6vw, 28px);
-      font-weight: 700;
-      color: var(--accent-2);
-      margin: 0 0 20px;
-    }
-    .tagline { font-size: 18px; color: var(--muted); margin: 0 0 28px; }
+    /* Header */
+    h1{font-family:"Plus Jakarta Sans", "Source Sans 3", sans-serif; font-size:clamp(32px,5vw,48px); font-weight:700; line-height:1.15; margin:0 0 6px; text-align:center}
+    .sub{font-size:18px; color:var(--muted); text-align:center; margin:0 0 24px}
 
-    /* Buttons (formerly “pills”) */
-    .pills { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
-    .pill {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 14px 22px;
-      border-radius: 999px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 16px;
-      box-shadow: var(--shadow);
-      transition: background .18s ease, border-color .18s ease, transform .18s ease;
-    }
-    .pill:hover { background: var(--accent); border-color: var(--accent); color: #fff; transform: translateY(-1px); }
+    /* Pills nav (match home) */
+    .pills{display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-bottom:36px}
+    .pill{display:inline-flex; align-items:center; justify-content:center; padding:14px 22px; border-radius:999px; background:var(--panel); border:1px solid var(--border); color:var(--text); text-decoration:none; font-weight:700; font-size:16px; box-shadow:var(--shadow); transition:background .18s ease, border-color .18s ease, transform .18s ease}
+    .pill:hover{background:var(--accent); border-color:var(--accent); color:#fff; transform:translateY(-1px)}
 
-    /* Bio panel */
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--accent);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow);
-      margin-bottom: 40px;
-      font-size: 18px;
-      line-height: 1.6;
-      color: var(--muted);
-      text-align: left;
-    }
+    /* Grid & Cards */
+    .grid{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:18px}
+    @media (max-width:860px){ .grid{grid-template-columns:1fr} }
 
-    footer { color: var(--muted); font-size: 14px; padding: 18px 0; border-top: 1px solid var(--border); margin-top: 28px; text-align:center; }
+    .card{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; display:flex; flex-direction:column; gap:10px}
+    .card h3{font-family:"Plus Jakarta Sans", "Source Sans 3", sans-serif; margin:0; font-weight:700; font-size:20px}
+    .kicker{margin:0; color:var(--text)}
+    .bullets{margin:6px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:6px}
+    .bullets .label{display:inline-block; min-width:140px; font-weight:700; color:var(--text)}
+    .bullets li{color:var(--muted)}
+    .links{margin-top:auto; display:flex; gap:12px}
+    .links a{color:var(--accent); font-weight:700; text-decoration:none}
 
-    /* Motion sensitivity */
-    @media (prefers-reduced-motion: reduce) { .pill { transition: none; } }
+    footer{color:var(--muted); font-size:14px; padding:18px 0; border-top:1px solid var(--border); margin-top:28px; text-align:center}
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Portfolio of Garth Lo Bello</h1>
-    <h2 class="subheader">Turning Data into Decisions</h2>
-    <p class="tagline">Financial Data Analytics &amp; Forecasting · Python · SQL · Tableau/Power BI · Excel</p>
+  <main class="wrap">
+    <header>
+      <h1>Projects</h1>
+      <p class="sub">Selected analytics and visualization work</p>
+      <nav class="pills">
+        <a class="pill" href="index.html">Home</a>
+        <a class="pill" href="https://drive.google.com/file/d/115EHtOKLiA-2smJm9yiweS01hvlUtHEE/view?usp=drive_link" target="_blank" rel="noopener">Resume</a>
+        <a class="pill" href="https://www.linkedin.com/in/garthlobello/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="pill" href="blog/index.html">Blog</a>
+      </nav>
+    </header>
 
-    <nav class="pills">
-      <a class="pill" href="https://drive.google.com/file/d/115EHtOKLiA-2smJm9yiweS01hvlUtHEE/view?usp=drive_link" target="_blank" rel="noopener">Resume</a>
-      <a class="pill" href="https://www.linkedin.com/in/garthlobello/" target="_blank" rel="noopener">LinkedIn Page</a>
-      <a class="pill" href="blog/index.html">Blog Posts</a>
-      <a class="pill" href="projects.html">Projects</a>
-    </nav>
+    <section class="grid">
+      <!-- 1) London Housing — Data Wrangling (Mini Project) -->
+      <article class="card">
+        <h3>London Housing — Data Wrangling (Mini Project)</h3>
+        <p class="kicker">From messy CSVs to analysis‑ready tables with verified joins and types.</p>
+        <ul class="bullets">
+          <li><span class="label">Data &amp; Methods:</span> cleaned nulls/outliers, normalized date &amp; price fields, merged sources; data tests guard against schema drift.</li>
+          <li><span class="label">Modeling/Tools:</span> Python · Pandas · Jupyter; tidy transforms with clear function boundaries.</li>
+          <li><span class="label">Outcome:</span> repeatable wrangling pipeline + EDA notebook that surfaces neighborhoods and trend shifts.</li>
+        </ul>
+        <div class="links">
+          <a href="https://github.com/gflobe5510/London-Housing-Data-Wrangling-Mini-Project" target="_blank" rel="noopener">GitHub Repo →</a>
+        </div>
+      </article>
 
-<div class="panel">
-  <ul class="bio">
-    <li>I create clean, reliable forecasting &amp; reporting pipelines.</li>
-    <li>I design robust models and clear dashboards that surface what matters.</li>
-    <li>I distill complex analysis into straightforward, actionable decisions.</li>
-  </ul>
-</div>
+      <!-- 2) Luxury Housing — Price Trends & Market Insights -->
+      <article class="card">
+        <h3>Luxury Housing — Price Trends &amp; Market Insights</h3>
+        <p class="kicker">Turns raw listings into pricing signals and segment insights for decision‑making.</p>
+        <ul class="bullets">
+          <li><span class="label">Data &amp; Methods:</span> price‑banding, bed/bath heatmaps, year‑built trend splits; outlier handling.</li>
+          <li><span class="label">Modeling/Tools:</span> Power BI · DAX measures (median price, MoM/YoY deltas).</li>
+          <li><span class="label">Outcome:</span> interactive report to compare submarkets and support pricing strategy.</li>
+        </ul>
+        <div class="links">
+          <a href="https://github.com/gflobe5510/Luxury-Housing-Price-Trends-Market-Insights" target="_blank" rel="noopener">GitHub Repo →</a>
+        </div>
+      </article>
+
+      <!-- 3) Financial Risk Analysis — Capstone I -->
+      <article class="card">
+        <h3>Financial Risk Analysis — Capstone I</h3>
+        <p class="kicker">Quantifies risk/return to inform portfolio allocation and scenario planning.</p>
+        <ul class="bullets">
+          <li><span class="label">Data &amp; Methods:</span> factor/benchmark setup, rolling vol/Sharpe, drawdown analysis, basic forecasting.</li>
+          <li><span class="label">Modeling/Tools:</span> Python · Pandas · Statsmodels; tidy backtest scaffolding.</li>
+          <li><span class="label">Outcome:</span> reproducible notebook + report translating metrics into allocation implications.</li>
+        </ul>
+        <div class="links">
+          <a href="https://github.com/gflobe5510/Financial-Risk-Analysis" target="_blank" rel="noopener">GitHub Repo →</a>
+        </div>
+      </article>
+
+      <!-- 4) Utility Sector Performance Optimization — Capstone II -->
+      <article class="card">
+        <h3>Utility Sector Performance Optimization — Capstone II</h3>
+        <p class="kicker">Diagnoses underperformance and simulates revenue lift with actionable levers.</p>
+        <ul class="bullets">
+          <li><span class="label">Data &amp; Methods:</span> outlier labeling, price‑sensitivity by state/sector, cohort comparisons.</li>
+          <li><span class="label">Modeling/Tools:</span> Python · Tableau; forecasting + scenario simulation.</li>
+          <li><span class="label">Outcome:</span> dashboard + playbook summarizing levers, trade‑offs, and expected impact.</li>
+        </ul>
+        <div class="links">
+          <a href="https://github.com/gflobe5510/Utility_Sector_Performance_Optimization" target="_blank" rel="noopener">GitHub Repo →</a>
+        </div>
+      </article>
+    </section>
 
     <footer>
       © <span id="y"></span> Garth Lo Bello
     </footer>
-  </div>
+  </main>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
