@@ -1,57 +1,107 @@
 <!DOCTYPE html>
-<!-- index.html -->
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Turning Data into Decisions · Portfolio of Garth Lo Bello</title>
+
+  <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg:#0b0d12;           /* deep slate */
-      --panel:#121621;        /* cards */
-      --text:#e7ecf2;         /* main text */
-      --muted:#9aa4b2;        /* secondary */
-      --accent:#6ae3ff;       /* cyan */
+      --bg:#0b0d12;           /* background */
+      --panel:#121621;        /* cards/pills */
+      --text:#e7ecf2;         /* text */
+      --muted:#9aa4b2;        /* secondary text */
+      --accent:#6ae3ff;       /* link/pill hover tint */
       --border:#212638;       /* borders */
       --radius:16px;
       --shadow:0 12px 30px rgba(0,0,0,.35);
-      --maxw:880px;
+      --maxw:900px;           /* content width */
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       color:var(--text);
       background:
         radial-gradient(1200px 600px at 85% -10%, rgba(106,227,255,.13), transparent 40%),
         radial-gradient(1000px 600px at -15% -20%, rgba(178,120,255,.10), transparent 38%),
         var(--bg);
     }
-    .wrap{max-width:var(--maxw); margin:0 auto; padding:32px 20px 56px}
 
-    header{margin-top:18px}
-    h1{font-size:clamp(32px,4.8vw,48px); line-height:1.15; margin:0 0 16px; font-weight:800}
-    .sub{color:var(--muted); max-width:68ch; margin:8px 0 0}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:56px 20px 64px}
 
-    /* pill nav */
-    .pills{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 28px}
-    .pill{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid var(--border); border-radius:999px; background:var(--panel); box-shadow:var(--shadow); color:var(--text); text-decoration:none; font-weight:600; font-size:14px}
-    .pill:hover{transform:translateY(-1px);}
+    /* Hero */
+    h1{
+      font-size:clamp(32px,4.6vw,56px);
+      line-height:1.12;
+      margin:0 0 18px;
+      font-weight:800;
+      letter-spacing:.2px;
+      text-wrap:balance;
+    }
+    .tagline{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:clamp(15px,2vw,18px);
+      max-width:70ch;
+    }
 
-    /* panel */
-    .panel{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
+    /* Pills */
+    .pills{
+      display:flex; flex-wrap:wrap; gap:12px;
+      margin:22px 0 30px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 16px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:var(--panel);
+      box-shadow:var(--shadow);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:600; font-size:14px;
+      transition:transform .12s ease, border-color .12s ease;
+    }
+    .pill:hover{ transform:translateY(-1px); border-color:rgba(106,227,255,.5) }
 
-    footer{color:var(--muted); border-top:1px solid var(--border); margin-top:36px; padding-top:20px; font-size:14px}
-    a{color:var(--accent); text-decoration:none}
+    /* Welcome panel */
+    .panel{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+      color:var(--muted);
+      font-size:16px;
+    }
+
+    footer{
+      color:var(--muted);
+      border-top:1px solid var(--border);
+      margin-top:40px;
+      padding-top:18px;
+      font-size:14px;
+    }
+
+    /* Mobile spacing tweak */
+    @media (max-width:520px){
+      .wrap{ padding-top:36px }
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
     <header>
       <h1>Turning Data into Decisions · Portfolio of Garth Lo Bello</h1>
+      <p class="tagline">Financial & utility-sector analytics • Python · SQL · Tableau/Power BI • Data storytelling</p>
+
       <nav class="pills">
         <a class="pill" href="https://drive.google.com/file/d/115EHtOKLiA-2smJm9yiweS01hvlUtHEE/view?usp=drive_link" target="_blank" rel="noopener">Resume</a>
         <a class="pill" href="https://www.linkedin.com/in/garth-lobello" target="_blank" rel="noopener">LinkedIn Page</a>
@@ -61,48 +111,14 @@
     </header>
 
     <section class="panel">
-      <p class="sub">Welcome! This site is a clean, single‑page landing for my analytics work. Use the pills above to jump to my resume, LinkedIn, blog, or curated projects page.</p>
+      Welcome! Use the pills above to jump to my resume, LinkedIn, blog, or a curated projects page.
+      I keep this site simple on purpose—fast to load and easy to navigate.
     </section>
 
     <footer>
-      <small>© <span id="y"></span> Garth Lo Bello</small>
+      © <span id="y"></span> Garth Lo Bello
     </footer>
   </main>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-</body>
-</html>
-<!DOCTYPE html>
-<!-- index.html -->
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Turning Data into Decisions · Portfolio of Garth Lo Bello</title>
-</head>
-<body>
-<header>
-<h1>Turning Data into Decisions · Portfolio of Garth Lo Bello</h1>
-<!-- Simple "pill" links (unstyled for now; we'll add CSS later) -->
-<nav class="pills">
-<a href="resume.pdf">Resume</a>
-<a href="https://www.linkedin.com/in/garth-lobello">LinkedIn Page</a>
-<a href="blog/index.html">Blog Posts</a>
-<a href="projects.html">Projects</a>
-</nav>
-</header>
-
-
-<main>
-<!-- Placeholder section. We'll fill this step-by-step. -->
-<section id="intro">
-<p>Welcome! This is a simple GitHub Pages portfolio. Use the pills above to navigate.</p>
-</section>
-</main>
-
-
-<footer>
-<small>© <span id="y"></span> Garth Lo Bello</small>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-</footer>
 </body>
 </html>
