@@ -27,10 +27,15 @@
     .container { max-width: var(--maxw); margin: 0 auto; padding: 60px 20px; text-align: center; }
 
     h1 {
-      font-size: clamp(28px, 4.5vw, 52px); /* reduced size */
+      font-size: clamp(28px, 4.5vw, 48px);
       font-weight: 800;
-      margin-bottom: 16px;
-      white-space: nowrap; /* keep on one line */
+      margin-bottom: 8px;
+    }
+    h2.subheader {
+      font-size: 50%;
+      font-weight: 600;
+      color: var(--muted);
+      margin: 0 0 24px;
     }
     .tagline { font-size: 20px; color: var(--muted); margin-bottom: 36px; }
 
@@ -67,7 +72,8 @@
 </head>
 <body>
   <div class="container">
-    <h1>Turning Data into Decisions · Portfolio of Garth Lo Bello</h1>
+    <h1>Portfolio of Garth Lo Bello</h1>
+    <h2 class="subheader">Turning Data into Decisions</h2>
     <p class="tagline">Financial & Utility‑Sector Analytics · Python · SQL · Tableau · Power BI</p>
 
     <nav class="pills">
