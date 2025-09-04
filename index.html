@@ -4,121 +4,44 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Turning Data into Decisions · Portfolio of Garth Lo Bello</title>
-
-  <!-- Typography -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
   <style>
-    :root{
-      --bg:#0b0d12;           /* background */
-      --panel:#121621;        /* cards/pills */
-      --text:#e7ecf2;         /* text */
-      --muted:#9aa4b2;        /* secondary text */
-      --accent:#6ae3ff;       /* link/pill hover tint */
-      --border:#212638;       /* borders */
-      --radius:16px;
-      --shadow:0 12px 30px rgba(0,0,0,.35);
-      --maxw:900px;           /* content width */
+    :root {
+      --bg: #0d1117; --panel: #161b22; --text: #e6edf3; --muted: #8b949e;
+      --accent: #58a6ff; --border: #30363d; --radius: 12px; --shadow: 0 4px 16px rgba(0,0,0,.4);
+      --maxw: 900px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 85% -10%, rgba(106,227,255,.13), transparent 40%),
-        radial-gradient(1000px 600px at -15% -20%, rgba(178,120,255,.10), transparent 38%),
-        var(--bg);
-    }
-
-    .wrap{max-width:var(--maxw); margin:0 auto; padding:56px 20px 64px}
-
-    /* Hero */
-    h1{
-      font-size:clamp(32px,4.6vw,56px);
-      line-height:1.12;
-      margin:0 0 18px;
-      font-weight:800;
-      letter-spacing:.2px;
-      text-wrap:balance;
-    }
-    .tagline{
-      margin:6px 0 0;
-      color:var(--muted);
-      font-size:clamp(15px,2vw,18px);
-      max-width:70ch;
-    }
-
-    /* Pills */
-    .pills{
-      display:flex; flex-wrap:wrap; gap:12px;
-      margin:22px 0 30px;
-    }
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 16px;
-      border:1px solid var(--border);
-      border-radius:999px;
-      background:var(--panel);
-      box-shadow:var(--shadow);
-      color:var(--text);
-      text-decoration:none;
-      font-weight:600; font-size:14px;
-      transition:transform .12s ease, border-color .12s ease;
-    }
-    .pill:hover{ transform:translateY(-1px); border-color:rgba(106,227,255,.5) }
-
-    /* Welcome panel */
-    .panel{
-      background:var(--panel);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      padding:22px;
-      box-shadow:var(--shadow);
-      color:var(--muted);
-      font-size:16px;
-    }
-
-    footer{
-      color:var(--muted);
-      border-top:1px solid var(--border);
-      margin-top:40px;
-      padding-top:18px;
-      font-size:14px;
-    }
-
-    /* Mobile spacing tweak */
-    @media (max-width:520px){
-      .wrap{ padding-top:36px }
-    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Inter, sans-serif; color: var(--text); background: var(--bg); }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 40px 20px; text-align: center; }
+    h1 { font-size: clamp(28px, 4vw, 44px); font-weight: 800; margin-bottom: 12px; }
+    .tagline { font-size: 18px; color: var(--muted); margin-bottom: 28px; }
+    .pills { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+    .pill { display: inline-block; padding: 10px 18px; border-radius: 999px; background: var(--panel); border: 1px solid var(--border);
+            color: var(--text); text-decoration: none; font-weight: 600; box-shadow: var(--shadow); transition: background .2s, transform .2s; }
+    .pill:hover { background: var(--accent); color: #000; transform: translateY(-2px); }
+    .panel { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); margin-bottom: 40px; }
+    footer { color: var(--muted); font-size: 14px; padding: 20px 0; border-top: 1px solid var(--border); margin-top: 40px; }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <header>
-      <h1>Turning Data into Decisions · Portfolio of Garth Lo Bello</h1>
-      <p class="tagline">Financial & utility-sector analytics • Python · SQL · Tableau/Power BI • Data storytelling</p>
+  <div class="container">
+    <h1>Turning Data into Decisions · Portfolio of Garth Lo Bello</h1>
+    <p class="tagline">Financial & Utility-Sector Analytics | Python · SQL · Tableau · Power BI</p>
 
-      <nav class="pills">
-        <a class="pill" href="https://drive.google.com/file/d/115EHtOKLiA-2smJm9yiweS01hvlUtHEE/view?usp=drive_link" target="_blank" rel="noopener">Resume</a>
-        <a class="pill" href="https://www.linkedin.com/in/garth-lobello" target="_blank" rel="noopener">LinkedIn Page</a>
-        <a class="pill" href="blog/index.html">Blog Posts</a>
-        <a class="pill" href="projects.html">Projects</a>
-      </nav>
-    </header>
+    <nav class="pills">
+      <a class="pill" href="https://drive.google.com/file/d/115EHtOKLiA-2smJm9yiweS01hvlUtHEE/view?usp=drive_link" target="_blank" rel="noopener">Resume</a>
+      <a class="pill" href="https://www.linkedin.com/in/garth-lobello" target="_blank" rel="noopener">LinkedIn Page</a>
+      <a class="pill" href="blog/index.html">Blog Posts</a>
+      <a class="pill" href="projects.html">Projects</a>
+    </nav>
 
-    <section class="panel">
-      Welcome! Use the pills above to jump to my resume, LinkedIn, blog, or a curated projects page.
-      I keep this site simple on purpose—fast to load and easy to navigate.
-    </section>
+    <div class="panel">
+      <p>Welcome to my professional portfolio. Here I showcase projects in financial data analytics, utility-sector performance, and data storytelling. Explore my resume, connect with me on LinkedIn, read my blog posts, or dive into my project work.</p>
+    </div>
 
-    <footer>
-      © <span id="y"></span> Garth Lo Bello
-    </footer>
-  </main>
+    <footer>© <span id="y"></span> Garth Lo Bello</footer>
+  </div>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
