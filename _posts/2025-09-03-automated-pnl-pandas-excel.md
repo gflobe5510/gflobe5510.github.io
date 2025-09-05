@@ -1,11 +1,11 @@
 ---
 
 layout: post
-title: "Automated P\&L from Raw Transactions with pandas + Excel"
+title: "Automated P&L from Raw Transactions with pandas + Excel"
 reading\_time: "7–9 min read"
 ---
 
-Most finance teams still copy/paste into spreadsheets. This post shows how to build a **repeatable monthly P\&L** from raw transactions using **pandas** and export a clean, formatted **Excel** report—ready for leadership—without manual work.
+Most finance teams still copy/paste into spreadsheets. This post shows how to build a **repeatable monthly P&L** from raw transactions using **pandas** and export a clean, formatted **Excel** report—ready for leadership—without manual work.
 
 You’ll get:
 
