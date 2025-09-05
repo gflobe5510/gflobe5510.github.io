@@ -1,0 +1,10 @@
+# Minimal config for GitHub Pages + Jekyll
+# (Leave theme blank because you're using custom HTML/CSS)
+
+
+name: "Garth Lo Bello"
+description: "Turning Data into Decisions"
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+# GitHub Pages uses safe/whitelisted plugins; leaving empty to keep it simple
+plugins: []
