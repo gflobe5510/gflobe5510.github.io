@@ -1,0 +1,56 @@
+---
+.pill{ display:inline-flex; align-items:center; justify-content:center; min-height:56px; padding:0 18px; border-radius:999px; background:var(--panel); border:1px solid var(--border); color:var(--text); text-decoration:none; font-weight:700; font-size:16px; box-shadow:var(--shadow) }
+.pill:hover{ background:var(--accent); border-color:var(--accent); color:#fff }
+@media (max-width: 860px){ .pills{ grid-template-columns: repeat(2,minmax(0,1fr)); } }
+
+
+.grid{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:18px }
+@media (max-width: 860px){ .grid{ grid-template-columns:1fr } }
+
+
+.card{ background:var(--panel); border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding:22px; display:flex; flex-direction:column; gap:8px }
+.card h3{ margin:0; font-family:"Plus Jakarta Sans","Source Sans 3",sans-serif; font-size:20px }
+.card .meta{ color:var(--muted); font-size:14px; margin-top:-2px }
+.card p{ color:var(--text); margin:4px 0 8px; line-height:1.6 }
+.card a.more{ color:var(--accent); text-decoration:none; font-weight:700; margin-top:auto }
+
+
+footer{ color:var(--muted); font-size:14px; padding:18px 0; border-top:1px solid var(--border); margin-top:28px; text-align:center }
+</style>
+</head>
+<body>
+<main class="wrap">
+<header>
+<h1>Blog</h1>
+<p class="sub">Weekly notes on forecasting, analytics, and decision‑ready dashboards</p>
+<nav class="pills">
+<a class="pill" href="/index.html">Home</a>
+<a class="pill" href="/projects.html">Projects</a>
+<a class="pill" href="/bio.html">Bio</a>
+<a class="pill" href="mailto:garthlobello1@gmail.com?subject=Hello%20from%20your%20portfolio">Contact</a>
+</nav>
+</header>
+
+
+<section class="grid">
+{% assign posts_sorted = site.posts | sort: 'date' | reverse %}
+{% for post in posts_sorted %}
+<article class="card">
+<h3><a href="{{ post.url }}" class="more">{{ post.title }}</a></h3>
+<div class="meta">{{ post.date | date: "%B %e, %Y" }}</div>
+{% if post.excerpt %}
+<p>{{ post.excerpt | strip_html | truncate: 180 }}</p>
+{% else %}
+<p>{{ post.description | default: site.description }}</p>
+{% endif %}
+<a class="more" href="{{ post.url }}">Read more →</a>
+</article>
+{% endfor %}
+</section>
+
+
+<footer>© <span id="y"></span> Garth Lo Bello</footer>
+</main>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
