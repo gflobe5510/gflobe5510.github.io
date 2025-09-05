@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Python Code · Garth Lo Bello</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#001233; --panel:#0a1a3d; --text:#e6edf3; --muted:#9aa4b2;
+      --accent:#2f81f7; --accent-2:#8dbbff; --border:#2b3a65;
+      --radius:12px; --shadow:0 2px 10px rgba(0,0,0,.28); --maxw:980px;
+      --code:#0b1736; --code-border:#1e2a55;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Source Sans 3", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px) 0 0 / 24px 24px,
+        linear-gradient(180deg,#0c1224 0%,#0a1a3d 55%,#0d1836 100%);
+    }
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:72px 20px 64px}
+
+    /* Header */
+    h1{font-family:"Plus Jakarta Sans","Source Sans 3",sans-serif; font-size:clamp(32px,5vw,48px); font-weight:700; line-height:1.15; margin:0 0 6px; text-align:center}
+    .sub{font-size:18px; color:var(--muted); text-align:center; margin:0 0 24px}
+
+    /* Pills */
+    .pills{display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-bottom:36px}
+    .pill{display:inline-flex; align-items:center; justify-content:center; padding:14px 22px; border-radius:999px; background:var(--panel); border:1px solid var(--border); color:var(--text); text-decoration:none; font-weight:700; font-size:16px; box-shadow:var(--shadow); transition:background .18s, border-color .18s, transform .18s}
+    .pill:hover{background:var(--accent); border-color:var(--accent); color:#fff; transform:translateY(-1px)}
+
+    /* Grid & Cards */
+    .grid{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:18px; margin-bottom:22px}
+    @media (max-width:860px){ .grid{grid-template-columns:1fr} }
+    .card{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px}
+    .card h3{font-family:"Plus Jakarta Sans","Source Sans 3",sans-serif; margin:0 0 6px; font-weight:700; font-size:20px}
+    .card p{margin:0 0 10px; color:var(--muted)}
+    .card .links{display:flex; gap:12px; margin-top:8px}
+    .cta{color:var(--accent); font-weight:700; text-decoration:none}
+
+    /* Code blocks */
+    .snippet{position:relative; margin:16px 0 28px}
+    pre{background:var(--code); border:1px solid var(--code-border); border-radius:10px; padding:14px; overflow:auto; line-height:1.5; font-size:14px}
+    code{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; color:#d7e3ff}
+    .copy{position:absolute; top:8px; right:8px; background:#11245a; border:1px solid var(--code-border); color:#fff; padding:6px 10px; border-radius:999px; font-weight:700; cursor:pointer}
+    .copy:active{transform:translateY(1px)}
+
+    footer{color:var(--muted); font-size:14px; padding:18px 0; border-top:1px solid var(--border); margin-top:28px; text-align:center}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>Python Code Samples</h1>
+      <p class="sub">Reusable patterns for analytics, forecasting, and data quality</p>
+      <nav class="pills">
+        <a class="pill" href="/index.html">Home</a>
+        <a class="pill" href="/projects.html">Projects</a>
+        <a class="pill" href="/blog/">Blog</a>
+        <a class="pill" href="/sql.html">SQL Code</a>
+        <a class="pill" href="https://www.linkedin.com/in/garthlobello/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="pill" href="mailto:garthlobello1@gmail.com?subject=Hello%20from%20your%20portfolio">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Cards (jump links) -->
+    <section class="grid">
+      <article class="card">
+        <h3>1) Pandas ETL Pipeline</h3>
+        <p>From CSV → clean table with schema checks & audit log.</p>
+        <div class="links"><a class="cta" href="#py-etl">Jump to code →</a></div>
+      </article>
+      <article class="card">
+        <h3>2) STL + Robust Z-Score</h3>
+        <p>Seasonality removal + anomaly flags for finance metrics.</p>
+        <div class="links"><a class="cta" href="#py-anomaly">Jump to code →</a></div>
+      </article>
+      <article class="card">
+        <h3>3) Cohort LTV (DataFrame)</h3>
+        <p>First-purchase cohorts → cumulative LTV per customer.</p>
+        <div class="links"><a class="cta" href="#py-ltv">Jump to code →</a></div>
+      </article>
+      <article class="card">
+        <h3>4) SARIMAX Forecast</h3>
+        <p>Quick monthly forecast with holdout evaluation.</p>
+        <div class="links"><a class="cta" href="#py-sarimax">Jump to code →</a></div>
+      </article>
+      <article class="card">
+        <h3>5) Streamlit Mini Dashboard</h3>
+        <p>Single-file app: trend, TTM, anomaly dots.</p>
+        <div class="links"><a class="cta" href="#py-streamlit">Jump to code →</a></div>
+      </article>
+    </section>
+
+    <!-- 1) Pandas ETL -->
+    <section id="py-etl" class="snippet">
+      <button class="copy" data-target="code-etl">Copy</button>
+      <pre><code id="code-etl" class="language-python">import pandas as pd
+from pathlib import Path
+from datetime import datetime, timezone
+
+DATA_DIR = Path("data")
+OUT_DIR = Path("out"); OUT_DIR.mkdir(exist_ok=True)
+
+df = pd.read_csv(DATA_DIR / "transactions.csv", parse_dates=["txn_ts"])
+assert {"txn_id","txn_ts","account_id","amount"}.issubset(df.columns)
+
+# Quality checks
+if df["amount"].isna().any(): raise ValueError("Null amounts found")
+if df.duplicated("txn_id").any(): raise ValueError("Duplicate txn_id")
+
+# Normalize
+df["amount"] = df["amount"].astype("float64")
+df["month"] = df["txn_ts"].dt.to_period("M").dt.to_timestamp()
+
+# Aggregate to month
+monthly = (df.groupby("month")["amount"].sum().rename("amount").reset_index())
+
+# Audit log
+log = {
+  "rows": int(len(df)),
+  "first_ts": df["txn_ts"].min().isoformat(),
+  "last_ts": df["txn_ts"].max().isoformat(),
+  "generated_at": datetime.now(timezone.utc).isoformat()
+}
+pd.DataFrame([log]).to_json(OUT_DIR / "etl_run_log.json", orient="records", indent=2)
+monthly.to_csv(OUT_DIR / "transactions_monthly.csv", index=False)
+print("✅ Wrote out/transactions_monthly.csv")</code></pre>
+    </section>
+
+    <!-- 2) Anomaly Detection -->
+    <section id="py-anomaly" class="snippet">
+      <button class="copy" data-target="code-anom">Copy</button>
+      <pre><code id="code-anom" class="language-python">import pandas as pd, numpy as np
+from statsmodels.tsa.seasonal import STL
+
+# df: columns ['date','value'] monthly; ensure MS frequency
+df["date"] = pd.to_datetime(df["date"])
+df = df.sort_values("date").set_index("date").asfreq("MS")
+df["value"] = df["value"].interpolate(limit_direction="both")
+
+stl = STL(df["value"], period=12, robust=True).fit()
+resid = stl.resid.dropna()
+med = resid.median(); mad = (resid - med).abs().median() or 1e-9
+z = 0.6745 * (resid - med) / mad
+flags = z.abs() > 3.5
+
+out = pd.DataFrame({
+  "value": df["value"], "trend": stl.trend, "seasonal": stl.seasonal,
+  "resid": stl.resid, "robust_z": z, "anomaly": flags
+})
+print(out.tail(3))</code></pre>
+    </section>
+
+    <!-- 3) Cohort LTV -->
+    <section id="py-ltv" class="snippet">
+      <button class="copy" data-target="code-ltv">Copy</button>
+      <pre><code id="code-ltv" class="language-python">import pandas as pd
+# orders: ['customer_id','order_ts','revenue']
+orders["order_ts"] = pd.to_datetime(orders["order_ts"])
+orders["month"] = orders["order_ts"].dt.to_period("M").dt.to_timestamp()
+
+m = (orders.groupby(["customer_id","month"])["revenue"].sum().reset_index())
+first = m.groupby("customer_id", as_index=False)["month"].min().rename(columns={"month":"cohort"})
+df = m.merge(first, on="customer_id")
+df["months_since"] = ( (df["month"].dt.year - df["cohort"].dt.year)*12
+                     + (df["month"].dt.month - df["cohort"].dt.month) )
+
+cohort_rev = df.groupby(["cohort","months_since"])["revenue"].sum().reset_index()
+pop = first.groupby("cohort").size().rename("cohort_size").reset_index()
+cum = (cohort_rev.sort_values(["cohort","months_since"])
+       .assign(rev_cum=lambda x: x.groupby("cohort")["revenue"].cumsum())
+       .merge(pop, on="cohort"))
+cum["ltv_per_customer"] = (cum["rev_cum"] / cum["cohort_size"]).round(2)
+print(cum.head())</code></pre>
+    </section>
+
+    <!-- 4) SARIMAX -->
+    <section id="py-sarimax" class="snippet">
+      <button class="copy" data-target="code-sarimax">Copy</button>
+      <pre><code id="code-sarimax" class="language-python">import pandas as pd
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+from sklearn.metrics import mean_absolute_percentage_error as mape
+
+# series: df with ['date','value'] monthly
+df["date"] = pd.to_datetime(df["date"])
+df = df.sort_values("date").set_index("date").asfreq("MS").fillna(method="ffill")
+
+train = df.iloc[:-6]; test = df.iloc[-6:]
+model = SARIMAX(train["value"], order=(1,1,1), seasonal_order=(0,1,1,12), enforce_stationarity=False, enforce_invertibility=False)
+res = model.fit(disp=False)
+
+fc = res.get_forecast(steps=6).predicted_mean
+print({"MAPE%": round(100*mape(test["value"], fc),2)})
+print(fc)</code></pre>
+    </section>
+
+    <!-- 5) Streamlit -->
+    <section id="py-streamlit" class="snippet">
+      <button class="copy" data-target="code-streamlit">Copy</button>
+      <pre><code id="code-streamlit" class="language-python"># streamlit_app.py
+import streamlit as st, pandas as pd, numpy as np
+
+st.title("Finance Monitor")
+df = st.file_uploader("Upload monthly CSV with date,value", type=["csv"])
+if df:
+    df = pd.read_csv(df, parse_dates=["date"]).sort_values("date")
+    df["ttm"] = df["value"].rolling(12).sum()
+    st.line_chart(df.set_index("date")[["value","ttm"]])
+    st.dataframe(df.tail(12))</code></pre>
+    </section>
+
+    <footer>© <span id="y"></span> Garth Lo Bello</footer>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.querySelectorAll('.copy').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-target');
+        const code = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(code).then(()=>{ btn.textContent='Copied!'; setTimeout(()=>btn.textContent='Copy',1200);});
+      });
+    });
+  </script>
+</body>
+</html>
