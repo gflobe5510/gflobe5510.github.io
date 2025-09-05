@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SQL Code · Garth Lo Bello</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#001233; --panel:#0a1a3d; --text:#e6edf3; --muted:#9aa4b2;
+      --accent:#2f81f7; --accent-2:#8dbbff; --border:#2b3a65;
+      --radius:12px; --shadow:0 2px 10px rgba(0,0,0,.28); --maxw:980px;
+      --code:#0b1736; --code-border:#1e2a55;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Source Sans 3", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px) 0 0 / 24px 24px,
+        linear-gradient(180deg,#0c1224 0%,#0a1a3d 55%,#0d1836 100%);
+    }
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:72px 20px 64px}
+
+    h1{font-family:"Plus Jakarta Sans","Source Sans 3",sans-serif; font-size:clamp(32px,5vw,48px); font-weight:700; line-height:1.15; margin:0 0 6px; text-align:center}
+    .sub{font-size:18px; color:var(--muted); text-align:center; margin:0 0 24px}
+
+    .pills{display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-bottom:36px}
+    .pill{display:inline-flex; align-items:center; justify-content:center; padding:14px 22px; border-radius:999px; background:var(--panel); border:1px solid var(--border); color:var(--text); text-decoration:none; font-weight:700; font-size:16px; box-shadow:var(--shadow); transition:background .18s, border-color .18s, transform .18s}
+    .pill:hover{background:var(--accent); border-color:var(--accent); color:#fff; transform:translateY(-1px)}
+
+    .grid{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:18px; margin-bottom:22px}
+    @media (max-width:860px){ .grid{grid-template-columns:1fr} }
+    .card{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px}
+    .card h3{font-family:"Plus Jakarta Sans","Source Sans 3",sans-serif; margin:0 0 6px; font-weight:700; font-size:20px}
+    .card p{margin:0 0 10px; color:var(--muted)}
+    .card .links{display:flex; gap:12px; margin-top:8px}
+    .cta{color:var(--accent); font-weight:700; text-decoration:none}
+
+    .snippet{position:relative; margin:16px 0 28px}
+    pre{background:var(--code); border:1px solid var(--code-border); border-radius:10px; padding:14px; overflow:auto; line-height:1.5; font-size:14px}
+    code{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; color:#d7e3ff}
+    .copy{position:absolute; top:8px; right:8px; background:#11245a; border:1px solid var(--code-border); color:#fff; padding:6px 10px; border-radius:999px; font-weight:700; cursor:pointer}
+    .copy:active{transform:translateY(1px)}
+
+    footer{color:var(--muted); font-size:14px; padding:18px 0; border-top:1px solid var(--border); margin-top:28px; text-align:center}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>SQL Code Samples</h1>
+      <p class="sub">Finance-ready SQL: retention, LTV, PVM, TTM/YoY/MoM, and data quality</p>
+      <nav class="pills">
+        <a class="pill" href="/index.html">Home</a>
+        <a class="pill" href="/projects.html">Projects</a>
+        <a class="pill" href="/blog/">Blog</a>
+        <a class="pill" href="/python.html">Python Code</a>
+        <a class="pill" href="https://www.linkedin.com/in/garthlobello/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="pill" href="mailto:garthlobello1@gmail.com?subject=Hello%20from%20your%20portfolio">Contact</a>
+      </nav>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <h3>1) TTM / YoY / MoM</h3>
+        <p>Rolling 12 months and % deltas with guardrails.</p>
+        <div class="links"><a class="cta" href="#sql-ttm">Jump to code →</a></div>
+      </article>
+      <article class="card">
+        <h3>2) Cohort Retention</h3>
+        <p>Months-since-cohort heatmap input.</p>
+        <div class="links"><a class="cta" href="#sql-retention">Jump to code →</a></div>
+      </article>
+      <article class="card">
+        <h3>3) Cohort LTV</h3>
+        <p>Cumulative LTV per acquired customer.</p>
+        <div class="links"><a class="cta" href="#sql-ltv">Jump to code →</a></div>
+      </article>
+      <article class="card">
+        <h3>4) Price–Volume–Mix</h3>
+        <p>Stable decomposition of revenue change.</p>
+        <div class="links"><a class="cta" href="#sql-pvm">Jump to code →</a></div>
+      </article>
+      <article class="card">
+        <h3>5) Data Quality Checks</h3>
+        <p>Freshness, PK uniqueness, null ratio.</p>
+        <div class="links"><a class="cta" href="#sql-dq">Jump to code →</a></div>
+      </article>
+    </section>
+
+    <!-- 1) TTM / YoY / MoM -->
+    <section id="sql-ttm" class="snippet">
+      <button class="copy" data-target="code-ttm">Copy</button>
+      <pre><code id="code-ttm" class="language-sql">-- fact_revenue_monthly: one row per product_id, per month
+SELECT
+  date_month,
+  product_id,
+  revenue,
+  /* TTM */
+  SUM(revenue) OVER (
+    PARTITION BY product_id
+    ORDER BY date_month
+    ROWS BETWEEN 11 PRECEDING AND CURRENT ROW
+  ) AS revenue_ttm,
+  /* MoM % */
+  (revenue - LAG(revenue)  OVER (PARTITION BY product_id ORDER BY date_month))
+    / NULLIF(LAG(revenue)   OVER (PARTITION BY product_id ORDER BY date_month),0) AS revenue_mom,
+  /* YoY % */
+  (revenue - LAG(revenue,12) OVER (PARTITION BY product_id ORDER BY date_month))
+    / NULLIF(LAG(revenue,12)  OVER (PARTITION BY product_id ORDER BY date_month),0) AS revenue_yoy
+FROM fact_revenue_monthly;</code></pre>
+    </section>
+
+    <!-- 2) Cohort Retention -->
+    <section id="sql-retention" class="snippet">
+      <button class="copy" data-target="code-ret">Copy</button>
+      <pre><code id="code-ret" class="language-sql">WITH first_purchase AS (
+  SELECT customer_id, MIN(date_month) AS cohort_month
+  FROM fact_orders_monthly
+  GROUP BY 1
+), activity AS (
+  SELECT
+    fp.cohort_month,
+    o.customer_id,
+    (12 * EXTRACT(YEAR FROM AGE(o.date_month, fp.cohort_month)) +
+         EXTRACT(MONTH FROM AGE(o.date_month, fp.cohort_month)))::int AS months_since
+  FROM fact_orders_monthly o
+  JOIN first_purchase fp USING (customer_id)
+)
+SELECT
+  cohort_month,
+  months_since,
+  COUNT(DISTINCT customer_id) AS active_customers
+FROM activity
+GROUP BY 1,2
+ORDER BY cohort_month, months_since;</code></pre>
+    </section>
+
+    <!-- 3) Cohort LTV -->
+    <section id="sql-ltv" class="snippet">
+      <button class="copy" data-target="code-ltv-sql">Copy</button>
+      <pre><code id="code-ltv-sql" class="language-sql">WITH first_purchase AS (
+  SELECT customer_id, MIN(date_month) AS cohort_month
+  FROM fact_orders_monthly
+  GROUP BY 1
+), rev AS (
+  SELECT
+    fp.cohort_month,
+    (12 * EXTRACT(YEAR FROM AGE(o.date_month, fp.cohort_month)) +
+         EXTRACT(MONTH FROM AGE(o.date_month, fp.cohort_month)))::int AS months_since,
+    SUM(o.revenue) AS cohort_revenue
+  FROM fact_orders_monthly o
+  JOIN first_purchase fp USING (customer_id)
+  GROUP BY 1,2
+), pop AS (
+  SELECT cohort_month, COUNT(*)::numeric AS cohort_size
+  FROM first_purchase
+  GROUP BY 1
+), cum AS (
+  SELECT
+    r.cohort_month, r.months_since,
+    SUM(r.cohort_revenue) OVER (PARTITION BY r.cohort_month ORDER BY r.months_since) AS revenue_cum
+  FROM rev r
+)
+SELECT
+  c.cohort_month, c.months_since,
+  (c.revenue_cum / NULLIF(p.cohort_size,0))::numeric(12,2) AS ltv_per_customer
+FROM cum c
+JOIN pop p USING (cohort_month)
+ORDER BY c.cohort_month, c.months_since;</code></pre>
+    </section>
+
+    <!-- 4) Price–Volume–Mix -->
+    <section id="sql-pvm" class="snippet">
+      <button class="copy" data-target="code-pvm">Copy</button>
+      <pre><code id="code-pvm" class="language-sql">WITH params AS (
+  SELECT DATE '2025-08-01' AS t0, DATE '2025-09-01' AS t1
+), base AS (
+  SELECT product_id, SUM(qty) AS q0, SUM(rev)/NULLIF(SUM(qty),0) AS p0
+  FROM fact_sales_monthly WHERE month = (SELECT t0 FROM params)
+  GROUP BY 1
+), curr AS (
+  SELECT product_id, SUM(qty) AS q1, SUM(rev)/NULLIF(SUM(qty),0) AS p1
+  FROM fact_sales_monthly WHERE month = (SELECT t1 FROM params)
+  GROUP BY 1
+), joined AS (
+  SELECT COALESCE(b.product_id, c.product_id) AS product_id,
+         COALESCE(b.q0,0) AS q0, COALESCE(b.p0,0) AS p0,
+         COALESCE(c.q1,0) AS q1, COALESCE(c.p1,0) AS p1
+  FROM base b FULL OUTER JOIN curr c USING (product_id)
+), calc AS (
+  SELECT
+    product_id,
+    (p1*q1 - p0*q0)                          AS delta_rev,
+    0.5 * (p1 - p0) * (q0 + q1)              AS price_effect,
+    0.5 * (q1 - q0) * (p0 + p1)              AS volume_effect
+  FROM joined
+)
+SELECT product_id, delta_rev, price_effect, volume_effect,
+       (delta_rev - price_effect - volume_effect) AS mix_effect
+FROM calc ORDER BY delta_rev DESC;</code></pre>
+    </section>
+
+    <!-- 5) Data Quality -->
+    <section id="sql-dq" class="snippet">
+      <button class="copy" data-target="code-dq">Copy</button>
+      <pre><code id="code-dq" class="language-sql">-- Freshness lag (hours)
+SELECT EXTRACT(EPOCH FROM (NOW() - MAX(loaded_at)))/3600 AS hours_lag
+FROM fact_orders;
+
+-- Duplicate PKs
+SELECT txn_id, COUNT(*) FROM fact_orders GROUP BY txn_id HAVING COUNT(*) > 1;
+
+-- Null ratio bound for order_ts
+WITH c AS (
+  SELECT COUNT(*)::numeric n, SUM(CASE WHEN order_ts IS NULL THEN 1 ELSE 0 END)::numeric n_null
+  FROM fact_orders
+)
+SELECT (n_null / NULLIF(n,0)) AS null_share FROM c;</code></pre>
+    </section>
+
+    <footer>© <span id="y"></span> Garth Lo Bello</footer>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.querySelectorAll('.copy').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-target');
+        const code = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(code).then(()=>{ btn.textContent='Copied!'; setTimeout(()=>btn.textContent='Copy',1200);});
+      });
+    });
+  </script>
+</body>
+</html>
