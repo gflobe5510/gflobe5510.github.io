@@ -1,9 +1,9 @@
 ---
-
 layout: post
 title: "Cohort LTV & Retention in SQL: A 30-Minute Build"
-reading\_time: "6–8 min read"
------------------------------
+reading_time: "6–8 min read"
+---
+
 
 Most “LTV” charts are either oversimplified or impossible to reproduce. This walkthrough gives you a **clean, reproducible cohort table** that supports retention, LTV, and growth analytics—using nothing but SQL.
 
