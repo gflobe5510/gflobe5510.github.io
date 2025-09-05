@@ -1,56 +1,72 @@
 ---
-.pill{ display:inline-flex; align-items:center; justify-content:center; min-height:56px; padding:0 18px; border-radius:999px; background:var(--panel); border:1px solid var(--border); color:var(--text); text-decoration:none; font-weight:700; font-size:16px; box-shadow:var(--shadow) }
-.pill:hover{ background:var(--accent); border-color:var(--accent); color:#fff }
-@media (max-width: 860px){ .pills{ grid-template-columns: repeat(2,minmax(0,1fr)); } }
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog · Garth Lo Bello</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{ --bg:#001233; --panel:#0a1a3d; --text:#e6edf3; --muted:#9aa4b2; --accent:#2f81f7; --accent-2:#8dbbff; --border:#2b3a65; --radius:12px; --shadow:0 2px 10px rgba(0,0,0,.28); --maxw:980px; }
+    *{ box-sizing:border-box }
+    body{
+      margin:0; font-family:"Source Sans 3",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; color:var(--text);
+      background:
+        radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px) 0 0 / 24px 24px,
+        linear-gradient(180deg,#0c1224 0%,#0a1a3d 55%,#0d1836 100%);
+    }
+    .wrap{ max-width:var(--maxw); margin:0 auto; padding:72px 20px 64px }
+    h1{ font-family:"Plus Jakarta Sans","Source Sans 3",sans-serif; font-size:clamp(32px,5vw,48px); font-weight:700; line-height:1.15; margin:0 0 6px; text-align:center }
+    .sub{ font-size:18px; color:var(--muted); text-align:center; margin:0 0 24px }
 
+    .pills{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; margin:0 0 32px }
+    .pill{ display:inline-flex; align-items:center; justify-content:center; min-height:56px; padding:0 18px; border-radius:999px; background:var(--panel); border:1px solid var(--border); color:var(--text); text-decoration:none; font-weight:700; font-size:16px; box-shadow:var(--shadow) }
+    .pill:hover{ background:var(--accent); border-color:var(--accent); color:#fff }
+    @media (max-width:860px){ .pills{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
 
-.grid{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:18px }
-@media (max-width: 860px){ .grid{ grid-template-columns:1fr } }
+    .grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px }
+    @media (max-width:860px){ .grid{ grid-template-columns:1fr } }
 
+    .card{ background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px; display:flex; flex-direction:column; gap:8px }
+    .card h3{ margin:0; font-family:"Plus Jakarta Sans","Source Sans 3",sans-serif; font-size:20px }
+    .card .meta{ color:var(--muted); font-size:14px; margin-top:-2px }
+    .card p{ color:var(--text); margin:4px 0 8px; line-height:1.6 }
+    .card a.more{ color:var(--accent); text-decoration:none; font-weight:700; margin-top:auto }
 
-.card{ background:var(--panel); border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding:22px; display:flex; flex-direction:column; gap:8px }
-.card h3{ margin:0; font-family:"Plus Jakarta Sans","Source Sans 3",sans-serif; font-size:20px }
-.card .meta{ color:var(--muted); font-size:14px; margin-top:-2px }
-.card p{ color:var(--text); margin:4px 0 8px; line-height:1.6 }
-.card a.more{ color:var(--accent); text-decoration:none; font-weight:700; margin-top:auto }
-
-
-footer{ color:var(--muted); font-size:14px; padding:18px 0; border-top:1px solid var(--border); margin-top:28px; text-align:center }
-</style>
+    footer{ color:var(--muted); font-size:14px; padding:18px 0; border-top:1px solid var(--border); margin-top:28px; text-align:center }
+  </style>
 </head>
 <body>
-<main class="wrap">
-<header>
-<h1>Blog</h1>
-<p class="sub">Weekly notes on forecasting, analytics, and decision‑ready dashboards</p>
-<nav class="pills">
-<a class="pill" href="/index.html">Home</a>
-<a class="pill" href="/projects.html">Projects</a>
-<a class="pill" href="/bio.html">Bio</a>
-<a class="pill" href="mailto:garthlobello1@gmail.com?subject=Hello%20from%20your%20portfolio">Contact</a>
-</nav>
-</header>
+  <main class="wrap">
+    <header>
+      <h1>Blog</h1>
+      <p class="sub">Weekly notes on forecasting, analytics, and decision-ready dashboards</p>
+      <nav class="pills">
+        <a class="pill" href="/index.html">Home</a>
+        <a class="pill" href="/projects.html">Projects</a>
+        <a class="pill" href="/bio.html">Bio</a>
+        <a class="pill" href="mailto:garthlobello1@gmail.com?subject=Hello%20from%20your%20portfolio">Contact</a>
+      </nav>
+    </header>
 
+    <section class="grid">
+      {% assign posts_sorted = site.posts | sort: 'date' | reverse %}
+      {% for post in posts_sorted %}
+        <article class="card">
+          <h3><a href="{{ post.url }}" class="more">{{ post.title }}</a></h3>
+          <div class="meta">{{ post.date | date: "%B %e, %Y" }}</div>
+          {% if post.excerpt %}
+            <p>{{ post.excerpt | strip_html | truncate: 180 }}</p>
+          {% endif %}
+          <a class="more" href="{{ post.url }}">Read more →</a>
+        </article>
+      {% endfor %}
+    </section>
 
-<section class="grid">
-{% assign posts_sorted = site.posts | sort: 'date' | reverse %}
-{% for post in posts_sorted %}
-<article class="card">
-<h3><a href="{{ post.url }}" class="more">{{ post.title }}</a></h3>
-<div class="meta">{{ post.date | date: "%B %e, %Y" }}</div>
-{% if post.excerpt %}
-<p>{{ post.excerpt | strip_html | truncate: 180 }}</p>
-{% else %}
-<p>{{ post.description | default: site.description }}</p>
-{% endif %}
-<a class="more" href="{{ post.url }}">Read more →</a>
-</article>
-{% endfor %}
-</section>
-
-
-<footer>© <span id="y"></span> Garth Lo Bello</footer>
-</main>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+    <footer>© <span id="y"></span> Garth Lo Bello</footer>
+  </main>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
