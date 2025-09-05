@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bio · Garth Lo Bello</title>
+  <meta name="description" content="Finance-focused data analyst turning data into decision-ready insights. Forecasting, reporting automation, SQL/Python modeling, and dashboard design." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#001233; --panel:#0a1a3d; --text:#e6edf3; --muted:#9aa4b2;
+      --accent:#2f81f7; --accent-2:#8dbbff; --border:#2b3a65;
+      --radius:12px; --shadow:0 2px 10px rgba(0,0,0,.28); --maxw:980px;
+    }
+    *{ box-sizing:border-box }
+    body{
+      margin:0;
+      font-family:"Source Sans 3", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px) 0 0 / 24px 24px,
+        linear-gradient(180deg,#0c1224 0%,#0a1a3d 55%,#0d1836 100%);
+    }
+    .wrap{ max-width:var(--maxw); margin:0 auto; padding:72px 20px 64px }
+
+    /* Header */
+    h1{ font-family:"Plus Jakarta Sans","Source Sans 3",sans-serif; font-size:clamp(32px,5vw,48px); font-weight:700; line-height:1.15; margin:0 0 6px; text-align:center }
+    .sub{ font-size:18px; color:var(--muted); text-align:center; margin:0 0 24px }
+
+    /* Pills nav (match site) */
+    .pills{ display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-bottom:36px }
+    .pill{ display:inline-flex; align-items:center; justify-content:center; padding:14px 22px; border-radius:999px; background:var(--panel); border:1px solid var(--border); color:var(--text); text-decoration:none; font-weight:700; font-size:16px; box-shadow:var(--shadow); transition:background .18s, border-color .18s, transform .18s }
+    .pill:hover{ background:var(--accent); border-color:var(--accent); color:#fff; transform:translateY(-1px) }
+
+    /* Panels */
+    .panel{ background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px; }
+    .panel + .panel{ margin-top:18px }
+    .section-title{ font-family:"Plus Jakarta Sans","Source Sans 3",sans-serif; font-size:20px; font-weight:700; margin:0 0 8px }
+    .lead{ font-size:18px; line-height:1.7; color:var(--text) }
+    .muted{ color:var(--muted) }
+
+    /* Grid */
+    .grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:18px; margin-top:18px }
+    @media (max-width: 880px){ .grid{ grid-template-columns:1fr; } }
+
+    /* Chips */
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 0; padding:0; list-style:none }
+    .chip{ padding:6px 10px; border-radius:999px; background:#0d214d; border:1px solid var(--border); font-weight:700; font-size:14px; color:var(--text) }
+
+    /* Lists */
+    ul.clean{ margin:8px 0 0; padding-left:1.15rem }
+    ul.clean li{ margin:6px 0; color:var(--muted); line-height:1.6 }
+
+    /* Callout */
+    .callout{ border-left:4px solid var(--accent); }
+
+    footer{ color:var(--muted); font-size:14px; padding:18px 0; border-top:1px solid var(--border); margin-top:28px; text-align:center }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>About Garth Lo Bello</h1>
+      <p class="sub">Turning Data into Decisions · Financial Data Analytics &amp; Forecasting</p>
+      <nav class="pills">
+        <a class="pill" href="/index.html">Home</a>
+        <a class="pill" href="/projects.html">Projects</a>
+        <a class="pill" href="/blog/">Blog</a>
+        <a class="pill" href="https://drive.google.com/file/d/115EHtOKLiA-2smJm9yiweS01hvlUtHEE/view?usp=drive_link" target="_blank" rel="noopener">Resume</a>
+        <a class="pill" href="https://www.linkedin.com/in/garthlobello/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="pill" href="mailto:garthlobello1@gmail.com?subject=Hello%20from%20your%20portfolio">Contact</a>
+      </nav>
+    </header>
+
+    <section class="panel callout">
+      <h2 class="section-title">Professional Summary</h2>
+      <p class="lead">Finance-focused data analyst with a foundation in economics and mathematics. I build clean forecasting and reporting pipelines, design robust models and dashboards, and turn complex analysis into straightforward, actionable decisions for stakeholders.</p>
+      <ul class="clean">
+        <li><strong>Forecasting &amp; planning:</strong> TTM/YoY/MoM frameworks, seasonal models, scenario checks.</li>
+        <li><strong>Reporting automation:</strong> SQL+pandas pipelines, scheduled refresh, Excel/BI delivery.</li>
+        <li><strong>Data storytelling:</strong> concise visuals and narratives that drive clear next steps.</li>
+      </ul>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <h3 class="section-title">Core strengths</h3>
+        <ul class="clean">
+          <li>Forecasting &amp; financial reporting (decision-ready metrics)</li>
+          <li>Data modeling &amp; SQL engineering (clean, testable tables)</li>
+          <li>Dashboard design &amp; stakeholder enablement</li>
+          <li>Experiment analysis and backtesting scaffolds</li>
+          <li>Data quality checks and reproducible workflows</li>
+        </ul>
+
+        <h3 class="section-title" style="margin-top:14px">Toolbox</h3>
+        <ul class="chips">
+          <li class="chip">Python (pandas, statsmodels)</li>
+          <li class="chip">SQL (Postgres/BigQuery/Snowflake)</li>
+          <li class="chip">Tableau</li>
+          <li class="chip">Power BI</li>
+          <li class="chip">Excel / Power Query</li>
+          <li class="chip">Jupyter</li>
+          <li class="chip">Streamlit</li>
+          <li class="chip">Git/GitHub</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h3 class="section-title">Selected highlights</h3>
+        <ul class="clean">
+          <li>Built a repeatable pipeline consolidating monthly financials; standardized TTM/YoY/MoM views.</li>
+          <li>Delivered interactive dashboards that surface drivers and trigger actions across teams.</li>
+          <li>Implemented a lightweight backtesting framework for risk/forecast sanity checks.</li>
+          <li>Introduced data-quality tests to guard against schema drift and missing values.</li>
+        </ul>
+
+        <h3 class="section-title" style="margin-top:14px">Education</h3>
+        <p class="muted">Academic foundation in <strong>economics</strong> and <strong>mathematics</strong>. Ongoing practice in applied analytics and finance.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3 class="section-title">What it’s like to work with me</h3>
+      <ul class="clean">
+        <li><strong>Discovery →</strong> align on decisions to support and the metrics that matter.</li>
+        <li><strong>Data hygiene →</strong> clean joins, tests, and documentation for reliable reuse.</li>
+        <li><strong>Models →</strong> simple first, then evolve (with holdouts/backtests for trust).</li>
+        <li><strong>Outputs →</strong> crisp visuals, clear copy, and owner-assigned next steps.</li>
+        <li><strong>Follow‑through →</strong> log decisions/outcomes to close the loop and learn.</li>
+      </ul>
+    </section>
+
+    <section class="panel callout">
+      <h3 class="section-title">Let’s connect</h3>
+      <p class="lead">Interested in how this approach could work for your team? I’m happy to share examples and discuss tradeoffs.</p>
+      <p>
+        <a class="pill" href="mailto:garthlobello1@gmail.com?subject=Hello%20from%20your%20portfolio">Email me</a>
+        <a class="pill" href="https://www.linkedin.com/in/garthlobello/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="pill" href="/projects.html">Projects</a>
+      </p>
+    </section>
+
+    <footer>© <span id="y"></span> Garth Lo Bello</footer>
+  </main>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
