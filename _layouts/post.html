@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<title>{{ page.title }} · Blog · Garth Lo Bello</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{ --bg:#001233; --panel:#0a1a3d; --text:#e6edf3; --muted:#9aa4b2; --accent:#2f81f7; --accent-2:#8dbbff; --border:#2b3a65; --radius:12px; --shadow:0 2px 10px rgba(0,0,0,.28); --maxw:840px; }
+*{ box-sizing: border-box }
+body{
+margin:0; font-family:"Source Sans 3", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color:var(--text);
+background:
+radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px) 0 0 / 24px 24px,
+linear-gradient(180deg, #0c1224 0%, #0a1a3d 55%, #0d1836 100%);
+}
+.wrap{ max-width: var(--maxw); margin: 0 auto; padding: 64px 20px 80px; }
+
+
+/* Top nav (match site) */
+.pills{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:28px }
+.pill{ display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:999px; background:var(--panel); border:1px solid var(--border); color:var(--text); text-decoration:none; font-weight:700; font-size:16px; box-shadow:var(--shadow) }
+.pill:hover{ background:var(--accent); border-color:var(--accent); color:#fff }
+
+
+h1{ font-family:"Plus Jakarta Sans","Source Sans 3",sans-serif; font-size: clamp(28px, 4.6vw, 44px); font-weight:700; line-height:1.15; margin: 8px 0 4px }
+.meta{ color: var(--muted); margin: 0 0 24px }
+
+
+.content{ background:var(--panel); border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px; }
+.content h2, .content h3{ font-family:"Plus Jakarta Sans","Source Sans 3",sans-serif; margin-top: 20px }
+.content p, .content li{ line-height: 1.7; color: var(--text) }
+.content code{ background: rgba(255,255,255,.06); padding: 2px 6px; border-radius: 6px }
+.content pre{ background: #0b1a38; border:1px solid var(--border); padding: 12px 14px; border-radius: 10px; overflow:auto }
+
+
+footer{ color:var(--muted); font-size:14px; padding:18px 0; margin-top:28px; text-align:center; border-top:1px solid var(--border) }
+</style>
+</head>
+<body>
+<main class="wrap">
+<nav class="pills">
+<a class="pill" href="/index.html">Home</a>
+<a class="pill" href="/projects.html">Projects</a>
+<a class="pill" href="/blog/index.html">Blog</a>
+<a class="pill" href="/bio.html">Bio</a>
+<a class="pill" href="mailto:garthlobello1@gmail.com?subject=Hello%20from%20your%20portfolio">Contact</a>
+</nav>
+
+
+<h1>{{ page.title }}</h1>
+<p class="meta">{{ page.date | date: "%B %e, %Y" }} · {{ page.reading_time | default: "3–5 min read" }}</p>
+
+
+<article class="content">
+{{ content }}
+</article>
+
+
+<footer>© <span id="y"></span> Garth Lo Bello</footer>
+</main>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
