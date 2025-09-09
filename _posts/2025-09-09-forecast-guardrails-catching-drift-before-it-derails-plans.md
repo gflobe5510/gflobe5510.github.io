@@ -14,7 +14,12 @@ This mini‑project ships lightweight **forecast guardrails**: rolling backtests
 > Repo: [https://github.com/gflobe5510/forecast-guardrails](https://github.com/gflobe5510/forecast-guardrails)
 > Image: the cone view below renders from the repo’s sample data.
 
-![Forecast vs actuals cone; dashed line marks the forecast start.](https://raw.githubusercontent.com/gflobe5510/forecast-guardrails/main/assets/forecast_cone.png)
+<img
+  src="https://raw.githubusercontent.com/gflobe5510/forecast-guardrails/main/assets/forecast_cone.png"
+  alt="Forecast vs actuals cone; dashed line marks the forecast start."
+  style="max-width:840px;width:100%;height:auto;display:block;margin:0.5rem auto 1rem;border-radius:12px;"
+/>
+
 
 ---
 
